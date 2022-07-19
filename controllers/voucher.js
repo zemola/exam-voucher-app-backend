@@ -51,5 +51,16 @@ exports.readAllVoucher = async (req, res) => {
 }
 
 
+//read voucher base on id from database
+exports.read = async (req, res) => {
+  const id = req.params.id;
 
+  const voucher = await Voucher.find({_id: id});
+  return res.status(200).json({
+    message: 'Voucher obbtained succcefully',
+    data: voucher
+  })
+
+
+}
 

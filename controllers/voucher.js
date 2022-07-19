@@ -1,11 +1,13 @@
 const Voucher = require("../models/vouchers");
 
+
+//Create Voucher on the data base
 exports.create = async (req, res) => {
-  const data = req.body;
+    const data = req.body;
   const requiredFields = ['title', 'price', 'description', 'image'  ];
 
   const missingFields = requiredFields.filter((key => {
-    return !Object.key(data).includes(key)
+    return !Object.keys(data).includes(key)
   }));
 
   if (missingFields.length !== 0) {
@@ -16,9 +18,9 @@ exports.create = async (req, res) => {
 
   const voucher = await Voucher.create({
     title:data.title,
-    price: body.price,
-    description: body.description,
-    image: body.image
+    price: +data.price,
+    description: data.description,
+    image: data.image
   });
 
   if (!voucher) {
@@ -36,4 +38,18 @@ exports.create = async (req, res) => {
   })
 
 }
+
+//Get All voucher from database
+exports.readAllVoucher = async (req, res) => {
+  const voucher = await Voucher.find({});
+  return res.status(200).json({
+    message: 'Voucher obtained successfuly',
+    data: {
+      voucher
+    }
+  })
+}
+
+
+
 

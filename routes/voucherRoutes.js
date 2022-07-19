@@ -5,4 +5,5 @@ module.exports = (app) => {
   const voucherController = require('../controllers/voucher')
 
   app.post(routeName, voucherController.create);
+  app.get(routeName, voucherController.readAllVoucher);
 }

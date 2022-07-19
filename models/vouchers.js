@@ -17,7 +17,7 @@ const voucherSchema = new Schema({
     required: true,
   },
 
-  Image: {
+  image: {
     type: String,
     required: true,
   },

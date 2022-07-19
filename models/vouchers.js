@@ -12,12 +12,19 @@ const voucherSchema = new Schema({
     required: true,
   },
 
-  password: {
+  description: {
     type: String,
     required: true,
   },
 
-  orders: [],
-});
+  Image: {
+    type: String,
+    required: true,
+  },
+},
+{
+  timestamps:true
+}
+);
 
 module.exports = mongoose.model("Voucher", voucherSchema);

@@ -7,4 +7,7 @@ module.exports = (app) => {
   app.post(routeName, voucherController.create);
   app.get(routeName, voucherController.readAllVoucher);
   app.get(`${routeName}/:id`, voucherController.read);
+  app.put(`${routeName}/:id`, voucherController.update);
+  app.delete(`${routeName}/:id`, voucherController.delete);
+
 }

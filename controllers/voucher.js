@@ -89,3 +89,21 @@ exports.update = async (req, res) => {
   })
 }
 
+
+//Delete voucher 
+
+exports.delete = async (req, res) => {
+  const VoucherID = req.params.id;
+  try{
+    await Voucher.deleteOne({_id:VoucherID});
+  } catch(error){
+    return res.status(400).json({
+      message:'An Error occured, please try again'
+    })
+  }
+
+  return res.status(200).json({
+    message: 'Voucher deleted successfuly'
+  })
+}
+

@@ -1,11 +1,12 @@
 const  express = require("express");
 const app = express();
+const cors = require('cors');
 const mongoose =require("mongoose"); //connent to use mongoose
 const bodyParser = require("body-parser"); //connent to bodyparse
 const PORT = 8080;
 
 
-
+app.use(cors());
 app.use(bodyParser.json());
 
 

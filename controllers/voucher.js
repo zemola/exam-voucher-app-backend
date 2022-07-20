@@ -64,3 +64,28 @@ exports.read = async (req, res) => {
 
 }
 
+
+//Update voucher
+
+exports.update = async (req, res) => {
+  const data = req.body;
+  const voucherId = req.params.id;
+
+  const availableFields = ['title', 'price', 'description', 'image'  ];
+
+  const isPart = Object.keys(data).filter(key => {
+    return !availableFields.includes(key)
+  });
+
+  if (isPart.length !== 0) {
+    return res.status(400).json ({
+      message: 'Kindly send the right request'
+    })
+  }
+
+  await Voucher.updateOne({_id: voucherId}, data);
+  return res.status(200).json({
+    message: 'Voucher updated successfully',
+  })
+}
+

@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 
 require('./routes/voucherRoutes')(app);
+require('./routes/promoRoutes')(app);
 
 mongoose.connect("mongodb+srv://React:React@cluster0.83l2v.mongodb.net/?retryWrites=true&w=majority").then(() => {
   app.listen(PORT, () => console.log("SERVER IS RUNNING"));
